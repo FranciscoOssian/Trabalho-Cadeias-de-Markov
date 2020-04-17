@@ -1,0 +1,132 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% para separar silabas em portugues use
+\usepackage[brazil]{babel}
+
+% para indentar o primeiro parágrafo
+\usepackage{indentfirst}
+
+% para usar fontes e símbolos da AMS
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% para ambientes do tipo theorem
+\newtheorem{proposition}{\scshape Proposição}[section]
+\newtheorem{corollary}{\scshape Corolário}[section]
+\newtheorem{lemma}{\scshape Lema}[section]
+\newtheorem{definition}{\scshape Definição}[section]
+\newtheorem{conjecture}{\scshape Conjectura}[section]
+\newtheorem{example}{\scshape Exemplo}
+
+% alguns atalhos para escrever vetores em negrito
+\renewcommand{\u}{{\bf u}}
+\renewcommand{\v}{{\bf v}}
+\renewcommand{\sin}{\operatorname{sen}}
+\providecommand{\w}{{\bf w}}
+\providecommand{\x}{{\bf x}}
+\providecommand{\y}{{\bf y}}
+\providecommand{\q}{{\bf q}}
+\providecommand{\bfa}{{\bf a}}
+\providecommand{\bfb}{{\bf b}}
+\providecommand{\bfc}{{\bf c}}
+\providecommand{\zero}{{\bf 0}}
+\providecommand{\spn}{\mathrm{span}}
+\providecommand{\posto}{\mathrm{posto}}
+\providecommand{\nul}{\mathrm{nul}}
+\providecommand{\proj}{\mathrm{proj}}
+\providecommand{\tr}{\mathrm{tr}}
+
+
+
+
+
+
+
+%opening
+
+
+
+
+\title{$2^o$ Trabalho de Álgebra Linear para Computação}
+\author{
+  Francisco Ossian Lopes Neto\\
+  \and
+  xxxxxxxxxxxxxxxxxxxxxxx\\
+  \and
+  yyyyyyyyyyyyyyyyyyyyyyyy\\
+  \and
+  zzzzzzzzzzzzzzzzzzzzzzzz\\
+  \and
+}
+\date{abril 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+O resumo deve conter a descrição do problema, a técnica, algoritmo ou método utilizado, a metodologia e uma indicação dos resultados obtidos. Só pode haver um parágrafo no resumo e não é permitido fazer referências bibliográficasxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+\label{sec:introducao}
+
+Podemos abordar na probabilidade da genética, inumeros casos peculiares que podemos resolve-los atravez da Álgebra Linear. Como quais as proporções em que populações tendem depois de vários períodos, se conparadas pelos seus genes. Sabemos que existem genes que são mais dominates, e por isso exercem uma força maior na velocidade de reprodução. Tendo isto em questão, podemos usar o sistema das Cadeias de Markov para calcular a probabilidade de proporção de determinados grupos em tempos discretos. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fundamentação Teórica (substitua por um título apropriado relacionado com seu trabalho)xxxxx}
+\label{sec:fundamentacao}
+
+Um processo de Markov é um processo estocástico em que a probabilidade de o sistema estar no estado $i$ no período $(n+1)$ depende somente do estado em que o sistema está no período $n$. Ou seja, para os processos de Markov, só interessa o estado imediato. Os principais elementos de um processo de Markov são dois:
+
+\begin{itemize}
+
+\item as probabilidades de transição $Mij$. Estas probabilidades de transição são normalmente agrupadas numa matriz, que denominamos matriz de transição, matriz estocástica ou ainda matriz de Markov. Onde $i$ representa o período $n$ e $j$ o período $n+1$. Ou $j$ o período $n$ e $i$ o período $n+1$
+
+\item a probabilidade $x^i(n)$ de ocorrer o estado $i$ no $n$-ésimo período de tempo, ou, alternativamente, a fração da população em questão que está no estado $i$ no $n$-ésimo período de tempo.
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Metodologia e Experimentos}
+\label{sec:metodologia}
+
+
+Consideremos uma matriz $M$, tal que
+\begin{displaymath}
+M = \begin{bmatrix}
+0.5&0.25&0\\
+0.5&0.5&0.5\\
+0&0.25&0.5
+\end{bmatrix}
+\end{displaymath}
+
+xxxxxxNesta seção, todo a metodologia usada no trabalho deve ser explicitada. Ou seja, a sequência do que foi feito e os parâmetros usados.
+
+Por exemplo, a matriz de Leslie relativa à população feminina americana em 1967.
+
+Os experimentos consistem, por exemplo, da centralização dos dados na matriz $X$, as matrizes formadas para compor as imagens (equipe C).xxxxxx
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Resultados e Conclusão}
+\label{sec:resultados}
+
+Nesta seção, aparecem os gráficos, as tabelas etc. Lembre-se que todo gráfico (que estão num ambiente de figura) ou tabela deve ser referenciado e explicado no \textbf{texto}.
+
+A conclusão é um pequeno resumo dos resultados obtidos, por exemplo, como a população de genes dominantes, híbridos e recessivos se estabiliza.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% referencias bibliograficas
+\bibliographystyle{apalike}
+% \bibliographystyle{abnt-alf}
+\bibliography{biblio}
+
+\end{document}
