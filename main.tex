@@ -98,7 +98,8 @@ Um processo de Markov é um processo estocástico em que a probabilidade de o si
 \label{sec:metodologia}
 
 
-Consideremos uma matriz $M$, tal que
+Consideremos uma matriz $M$, tal que $Mij$ representa a transição do estado $i$ para o estado $j$. Fechando exclusivamente a uma transição em que temos no promeiro período um genótipo qualquer e nos $N$ proxímos períodos esse genótipo qualquer seja combinado com um genótipo heterogêneo. Tendo assim apenas 1 probabilidade para cada transição. 
+
 \begin{displaymath}
 M = \begin{bmatrix}
 0.5&0.25&0\\
@@ -106,6 +107,8 @@ M = \begin{bmatrix}
 0&0.25&0.5
 \end{bmatrix}
 \end{displaymath}
+
+Os experimentos consistem em Encontrar respostas de $N$ períodos das transições de estados, por meio de técnicas matriciais, como autovalores, autovetor, decomposição espectral.
 
 xxxxxxNesta seção, todo a metodologia usada no trabalho deve ser explicitada. Ou seja, a sequência do que foi feito e os parâmetros usados.
 
