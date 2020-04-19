@@ -154,7 +154,38 @@ Os autovalores iram simplificar os cálculos da potência da matriz $M$, por mei
 
 O autovalor predominante da matriz $M$ vai nos dar por conseguinte seu autovetor, sendo este autovetor a proporção de cada genótipos no periodo $n$.
 
+Calculando os autovalores, temos:
+\begin{center}
+    $\lambda_1 = 0$,\\ $\lambda_2$ = 0.5,\\ $\lambda_3 = 1$.
+\end{center}
 
+Pois,
+\begin{center}
+    $det(M-\lambda I) = 0$\\
+    $= (0.5 - \lambda)^3 - 1/16 - \lambda/8 = 0$
+\end{center}
+e $\lambda_1$, $\lambda_2$, $\Lambda_3$ são suas respectivas raízes
+
+Como já definido, se um autovalor for entre $0$ e $1$, ele não será considerado um autovalor suficiente para $n$ tendendo ao infinito.
+
+Que no caso da matriz $M$, os limites dos autovalores são :
+\begin{center}
+    $\lim_{k\to\infty} (\lambda_1)^k = 0$,\\
+    $\lim_{k\to\infty} (\lambda_2)^k = 0$,\\
+    $\lim_{k\to\infty} (\lambda_3)^k = 1$
+\end{center}
+
+Então o autovalor dominante é o $\lambda_3$. E seu autovetor ascossiado é, no caso ao subistituirmos $\lambda_3$ em $M\vec{v} = \lambda \vec{v}$ e calcularmos o sistema objtido, obtemos que o autovetor $\vec{v}$ ascosicado a $\lambda_3$ é igual a:
+
+\begin{displaymath}
+\vec{v_3} = \begin{bmatrix}
+1\\
+2\\
+1
+\end{bmatrix}
+\end{displaymath}
+
+Sendo está a proporção de genes quando o número de períodos tende a infinito
 
 
 
