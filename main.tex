@@ -75,7 +75,7 @@ O resumo deve conter a descrição do problema, a técnica, algoritmo ou método
 \section{Introdução}
 \label{sec:introducao}
 
-Podemos abordar na probabilidade da genética, inumeros casos peculiares que podemos resolve-los atravez da Álgebra Linear. Como quais as proporções em que populações tendem depois de vários períodos, se conparadas pelos seus genes. Sabemos que existem genes que são mais dominates, e por isso exercem uma força maior na velocidade de reprodução. Tendo isto em questão, podemos usar o sistema das Cadeias de Markov para calcular a probabilidade da proporção de determinados grupos em tempos discretos. 
+Podemos abordar na probabilidade da genética, inumeros casos peculiares que podemos resolve-los atravez da Álgebra Linear. Como quais as proporções em que populações tendem depois de vários períodos, se conparadas pelos seus genes. Sabemos que existem genes que são mais dominates, e por isso exercem uma força maior na velocidade de reprodução. Tendo isto em questão, podemos usar o sistema das Cadeias de Markov junto a operações matriciais da Álgebra Linear para calcular a probabilidade da proporção de determinados grupos em tempos discretos. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,6 +92,46 @@ Um processo de Markov é um processo estocástico em que a probabilidade de o si
 
 \end{itemize}
 
+    Para nós encontrarmos autovalores e autovetores de uma matriz $M$, precisamos seguir uma lógica de uma equação:
+$M * \vec{v} = \lambda * \vec{v}$,
+onde os simbolos representam respectivamente, a matriz de estados de Markov, um autovetor da matriz, um autovalor da matriz, e o autovetor da matriz. \\
+
+    Em Araújo, Thelmo Pontes de, Álgebra linear: teoria e aplicações / Thelmo Pontes de Araújo. — Rio deJaneiro: SBM, 2014, página 178, proposição 4.12 : \\
+
+\begin{center}
+    Sejam $A$ e $B$ matrizes.\\então, $det(AB) = det(A) det(B)$
+\end{center}
+
+    E, sendo um autorvetor $\vec{v}_2$ e um autovalor $\lambda_2$,
+\begin{center}
+$\lambda_2 I \vec{v}_2 = \lambda_2 \vec{v}_2$
+\end{center}
+
+    Onde $I$ é a matriz identidade.
+Então podemos isolar a matriz de Markov e $\lambda I$, tal que.
+
+\begin{center}
+$(M-\lambda I)\vec{v} = \vec{0}$.\end{center}
+
+Fazendo agora o determinate temos, 
+$det((M-\lambda I)\vec{v}) = det(\vec{0})$, logo:
+
+\begin{center}
+    $det(M - \lambda I) = 0$
+\end{center}
+
+Pois por definição $\vec{v}$ é não nulo, e $det(0) = 0$\\\\
+E para conseguir os autovalore, fazemos o determinate, tendo a matriz M. No final encontramos um polinômio de grau 3,  $ax^3 + bx^2 + cx^1 + dx^0$. Onde cada raíz deste polinômio é um $\lambda$ (autovalor) da matriz M.\\
+
+E em casos que $\lambda$ é um valor entre $0$ e $1$, com o passar de $n$ períodos, onde $n$ tende a infinito, o resesultado irá tender a $0$, pois\\
+\begin{center}
+$\lim_{n\to\infty} x^n = 0$\\ tal que,  $0 < n < 1$\end{center}
+
+E calculando o autovalor, utilizamos mais uma vez\\
+\begin{center}
+    $M \vec{v} = \lambda \vec{v}$,
+\end{center}
+e substituimos $\lambda$ pelo valor que encontramos, formando um sistema e encontrando o autovetor $\vec{v}$.
 
 %%%%%%%%%%%%%%%%%%%%%
 \section{Metodologia e Experimentos}
@@ -113,6 +153,10 @@ Os experimentos consistem em Encontrar respostas de $n$ períodos das transiçõ
 Os autovalores iram simplificar os cálculos da potência da matriz $M$, por meio da diagonalização da mesma. 
 
 O autovalor predominante da matriz $M$ vai nos dar por conseguinte seu autovetor, sendo este autovetor a proporção de cada genótipos no periodo $n$.
+
+
+
+
 
 xxxxxxxxxxxxxNesta seção, todo a metodologia usada no trabalho deve ser explicitada. Ou seja, a sequência do que foi feito e os parâmetros usados.
 
