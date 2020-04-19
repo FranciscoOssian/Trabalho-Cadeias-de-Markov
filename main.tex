@@ -96,12 +96,6 @@ Um processo de Markov é um processo estocástico em que a probabilidade de o si
 $M * \vec{v} = \lambda * \vec{v}$,
 onde os simbolos representam respectivamente, a matriz de estados de Markov, um autovetor da matriz, um autovalor da matriz, e o autovetor da matriz. \\
 
-    Em Araújo, Thelmo Pontes de, Álgebra linear: teoria e aplicações / Thelmo Pontes de Araújo. — Rio deJaneiro: SBM, 2014, página 178, proposição 4.12 : \\
-
-\begin{center}
-    Sejam $A$ e $B$ matrizes.\\então, $det(AB) = det(A) det(B)$
-\end{center}
-
     E, sendo um autorvetor $\vec{v}_2$ e um autovalor $\lambda_2$,
 \begin{center}
 $\lambda_2 I \vec{v}_2 = \lambda_2 \vec{v}_2$
@@ -121,7 +115,7 @@ $det((M-\lambda I)\vec{v}) = det(\vec{0})$, logo:
 \end{center}
 
 Pois por definição $\vec{v}$ é não nulo, e $det(0) = 0$\\\\
-E para conseguir os autovalore, fazemos o determinate, tendo a matriz M. No final encontramos um polinômio de grau 3,  $ax^3 + bx^2 + cx^1 + dx^0$. Onde cada raíz deste polinômio é um $\lambda$ (autovalor) da matriz M.\\
+E para conseguir os autovalores, fazemos o determinate, tendo a matriz $M$. No final encontramos um polinômio de grau 3,  $ax^3 + bx^2 + cx^1 + dx^0$. Onde cada raíz deste polinômio é um $\lambda$ (autovalor) da matriz M.\\
 
 E em casos que $\lambda$ é um valor entre $0$ e $1$, com o passar de $n$ períodos, onde $n$ tende a infinito, o resesultado irá tender a $0$, pois\\
 \begin{center}
@@ -185,7 +179,13 @@ Então o autovalor dominante é o $\lambda_3$. E seu autovetor ascossiado é, no
 \end{bmatrix}
 \end{displaymath}
 
-Sendo está a proporção de genes quando o número de períodos tende a infinito
+Sendo está a proporção de genes quando o número de períodos tende a infinito.
+Mas esta proporção não está representada como porcentagem. Para nós convertermos a proporção de genes para porcentagem, precisamos normalizar o vetor $\vec{v}_3$ para norma $1$, assim a soma de suas porcentagens/linhas será igual a $1$, logo:
+\begin{center}
+    $||\vec{v}_3|| = \dfrac{\vec{v}_3}{\langle\ \vec{v}_3,\vec{v}_3 \rangle}$
+    $ = \begin{bmatrix} \dfrac{1}{\sqrt{6}}\\ \dfrac{2}{\sqrt{6}}\\ \dfrac{1}{\sqrt{6}} \end{bmatrix}$
+\end{center}
+
 
 
 
@@ -210,5 +210,5 @@ A conclusão é um pequeno resumo dos resultados obtidos, por exemplo, como a po
 \bibliographystyle{apalike}
 % \bibliographystyle{abnt-alf}
 \bibliography{biblio}
-
+Araújo, Thelmo Pontes de, Álgebra linear: teoria e aplicações / Thelmo Pontes de Araújo. — Rio deJaneiro: SBM, 2014
 \end{document}
