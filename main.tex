@@ -1,3 +1,8 @@
+\documentclass[14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 
@@ -67,7 +72,7 @@
 \maketitle
 
 \begin{abstract}
-O resumo deve conter a descrição do problema, a técnica, algoritmo ou método utilizado, a metodologia e uma indicação dos resultados obtidos. Só pode haver um parágrafo no resumo e não é permitido fazer referências bibliográficasxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+probabilidade da genética, envolve diversas vezes, solução que dependem da álgebra linear para transformar seu problmeas em triviais. Um deles é a taxa de probabilidade genética ao passar das geraçãoes. Sendo este problema resolvido com as Cadeias de Markov que juntam diversas técnicas e métodos matriciais, para representar justamente a taxa de probabilidade ao decorrer das gerações. Utilizando autovalores, aitovetores, decomposição espectral, entre outros.
 \end{abstract}
 
 
@@ -79,7 +84,7 @@ Podemos abordar na probabilidade da genética, inumeros casos peculiares que pod
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fundamentação Teórica (substitua por um título apropriado relacionado com seu trabalho)xxxxx}
+\section{Fundamentação Teórica}
 \label{sec:fundamentacao}
 
 Um processo de Markov é um processo estocástico em que a probabilidade de o sistema estar no estado $i$ no período $(n+1)$ depende somente do estado em que o sistema está no período $n$. Ou seja, para os processos de Markov, só interessa o estado imediato. Os principais elementos de um processo de Markov são dois:
@@ -125,7 +130,15 @@ E calculando o autovalor, utilizamos mais uma vez\\
 \begin{center}
     $M \vec{v} = \lambda \vec{v}$,
 \end{center}
-e substituimos $\lambda$ pelo valor que encontramos, formando um sistema e encontrando o autovetor $\vec{v}$.
+e substituimos $\lambda$ pelo valor que encontramos, formando um sistema e encontrando o autovetor $\vec{v}$.\\
+
+Uma matriz $M$, pode ser escrita como, $M = S\Lambda S^{-1}$,
+onde $\Lambda$ é a matriz diagonal dos autovalores de $M$ e $S$ é uma matriz cujas colunas são os autovetores associados dos autovalores de $M$\\
+
+Sabendo que uma matriz pode ser decompostar em $S\Lambda S^{-1}$, fica trivial o cálculo de sua potência. Sendo:
+\begin{center}
+    $M^k = (S\Lambda S^{-1})^k = S\Lambda S^{-1} S\Lambda S^{-1} ... S\Lambda S^{-1} = S\Lambda^k S^{-1} $
+\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%
 \section{Metodologia e Experimentos}
@@ -142,15 +155,15 @@ M = \begin{bmatrix}
 \end{bmatrix}
 \end{displaymath}
 
-Os experimentos consistem em Encontrar respostas de $n$ períodos das transições de estados, por meio de técnicas matriciais, como autovalores, autovetores e decomposição espectral.
+Os experimentos consistem em Encontrar respostas de $n$ períodos das transições de estados, por meio de técnicas matriciais, como autovalores, autovetores e decomposição espectral.\\
 
-Os autovalores iram simplificar os cálculos da potência da matriz $M$, por meio da diagonalização da mesma. 
+A decomposição espectral junto aos autovalores iram simplificar os cálculos da potência da matriz $M$, por meio da diagonalização da mesma. \\
 
-O autovalor predominante da matriz $M$ vai nos dar por conseguinte seu autovetor, sendo este autovetor a proporção de cada genótipos no periodo $n$.
+O autovalor predominante da matriz $M$ vai nos dar por conseguinte seu autovetor, sendo este autovetor a proporção de cada genótipos no período $k$ representado pelo $\lim_{k\to\infty}$.\\
 
 Calculando os autovalores, temos:
 \begin{center}
-    $\lambda_1 = 0$,\\ $\lambda_2$ = 0.5,\\ $\lambda_3 = 1$.
+    $\lambda_1 = 1$,\\ $\lambda_2$ = 0.5,\\ $\lambda_3 = 0$.
 \end{center}
 
 Pois,
@@ -164,15 +177,15 @@ Como já definido, se um autovalor for entre $0$ e $1$, ele não será considera
 
 Que no caso da matriz $M$, os limites dos autovalores são :
 \begin{center}
-    $\lim_{k\to\infty} (\lambda_1)^k = 0$,\\
+    $\lim_{k\to\infty} (\lambda_1)^k = 1$,\\
     $\lim_{k\to\infty} (\lambda_2)^k = 0$,\\
-    $\lim_{k\to\infty} (\lambda_3)^k = 1$
+    $\lim_{k\to\infty} (\lambda_3)^k = 0$
 \end{center}
 
-Então o autovalor dominante é o $\lambda_3$. E seu autovetor ascossiado é, no caso ao subistituirmos $\lambda_3$ em $M\vec{v} = \lambda \vec{v}$ e calcularmos o sistema objtido, obtemos que o autovetor $\vec{v}$ ascosicado a $\lambda_3$ é igual a:
+Então o autovalor dominante é o $\lambda_1$. E seu autovetor associado é, no caso ao subistituirmos $\lambda_1$ em $M\vec{v} = \lambda \vec{v}$ e calcularmos o sistema objtido, obtemos que o autovetor $\vec{v}$ associado a $\lambda_1$ é igual a:
 
 \begin{displaymath}
-\vec{v_3} = \begin{bmatrix}
+\vec{v_1} = \begin{bmatrix}
 1\\
 2\\
 1
@@ -180,30 +193,217 @@ Então o autovalor dominante é o $\lambda_3$. E seu autovetor ascossiado é, no
 \end{displaymath}
 
 Sendo está a proporção de genes quando o número de períodos tende a infinito.
-Mas esta proporção não está representada como porcentagem. Para nós convertermos a proporção de genes para porcentagem, precisamos normalizar o vetor $\vec{v}_3$ para norma $1$, assim a soma de suas porcentagens/linhas será igual a $1$, logo:
+Mas esta proporção não está representada como porcentagem. Para nós convertermos a proporção de genes para porcentagem, precisamos normalizar o vetor $\vec{v}_1$ para norma $1$, assim a soma de suas porcentagens/linhas será igual a $1$, logo:
 \begin{center}
-    $||\vec{v}_3|| = \dfrac{\vec{v}_3}{\langle\ \vec{v}_3,\vec{v}_3 \rangle}$
+    $||\vec{v}_1|| = \dfrac{\vec{v}_1}{\sqrt{\langle\ \vec{v}_1,\vec{v}_1 \rangle}}$
     $ = \begin{bmatrix} \dfrac{1}{\sqrt{6}}\\ \dfrac{2}{\sqrt{6}}\\ \dfrac{1}{\sqrt{6}} \end{bmatrix}$
 \end{center}
 
+E podemos então calcular a decomposição espetral de $M$, para quando quisermos calcular a proporção de genes em qualquer período de formar viável.
 
+primeirp precisamos calcular todos os autovalores e vetores de $M$, os autovalores já foram calculadores, sendo $\lambda_1 = 1; \lambda_2 = 0.5; \lambda_3 = 0$\\
 
+Então precisamos calcular os autovetores relacionados a cada autovetor, resolvendo 2 sistemas linerares (pois $\vec{v}_1$ já foi calculado):\\
 
-xxxxxxxxxxxxxNesta seção, todo a metodologia usada no trabalho deve ser explicitada. Ou seja, a sequência do que foi feito e os parâmetros usados.
+\begin{center}
+    $ M\lambda_2 = \lambda_2 \vec{v}_2  $\\
+    $ $\\
+    $\begin{bmatrix}
+    0.5&0.25&0\\
+    0.5&0.5&0.5\\
+    0&0.25&0.5
+    \end{bmatrix} 0.5 = 0.5 \begin{bmatrix} \vec{v}_{21}\\ \vec{v}_{22}\\ \vec{v}_{23} \end{bmatrix}$\\
+    $ $\\
+    $ $\\
+    $\begin{cases}
+        \frac{2\vec{v}_{21} \vec{v}_{22}}{4} = 0\\
+        \frac{\vec{v}_{21} \vec{v}_{22} \vec{v}_{23}}{2} = 0\\
+        \frac{\vec{v}_{22}+2 \vec{v}_{23}}{4} = 0 \end{cases}
+    $
+    $ $\\
+    $ $\\
+    logo,\\
+    $ $\\
+    $\vec{v}_2 = \begin{bmatrix} \vec{v}_{21}\\ \vec{v}_{22}\\ \vec{v}_{23} \end{bmatrix} = \begin{bmatrix} -1\\ 0\\ 1 \end{bmatrix}$ 
+\end{center}
+$ $\\
+$ $\\
 
-Por exemplo, a matriz de Leslie relativa à população feminina americana em 1967.
+Seguindo os mesmos passos mostrados anteriores, com $\lambda_3$ no lugar de $\lambda_2$, obtemos:
 
-Os experimentos consistem, por exemplo, da centralização dos dados na matriz $X$, as matrizes formadas para compor as imagens (equipe C).xxxxxxxxxxxx
+\begin{center}
+    $\vec{v}_3 = \begin{bmatrix} \vec{v}_{31}\\ \vec{v}_{32}\\ \vec{v}_{33} \end{bmatrix} = \begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}$
+\end{center}
 
+Então calculamos a decomposição espectral:
+
+\begin{center}
+    $S\Lambda S^{-1} = 
+    \begin{bmatrix}
+    0.5&0.25&0\\
+    0.5&0.5&0.5\\
+    0&0.25&0.5
+    \end{bmatrix} = M $ \\
+    $ $\\
+    $ $\\
+    
+    $S \Lambda = \begin{bmatrix}
+    1&-0.5&0\\
+    2&0&0\\
+    1&0.5&0
+    \end{bmatrix} 
+    \begin{bmatrix}
+    0.25&0.25&0.25\\
+    -0.5&0&0.5\\
+    0.25&-0.25&0.25
+    \end{bmatrix} = S^{-1}
+    $\\
+    $ $\\
+    $ $\\
+    $S\Lambda S^{-1} =
+    \begin{bmatrix}
+    1&-1&1\\
+    2&0&-2\\
+    1&1&1
+    \end{bmatrix} 
+    \begin{bmatrix}
+    1&0&0\\
+    0&0.5&0\\
+    0&0&0
+    \end{bmatrix}
+    \begin{bmatrix}
+    0.25&0.25&0.25\\
+    -0.5&0&0.5\\
+    0.25&-0.25&0.25
+    \end{bmatrix}
+    $
+\end{center}
+
+Agora que temos a decomposição espectral, torna-se trivial o cálculo da proporção de probabilidade de genes, em qualquer período discreto.
+$ $\\
+
+Como por exemplo a distribuição de genes iniciais sendo $= \vec{v} = \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix}$. E o número de períodos $= 4$. \\
+
+\begin{center}
+    $M^4 \vec{v} = S\Lambda^4 S^{-1} \vec{v}$\\
+    $ $\\
+    $= \begin{bmatrix}
+    1&-1&1\\
+    2&0&-2\\
+    1&1&1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1&0&0\\
+    0&0.5&0\\
+    0&0&0
+    \end{bmatrix}^4
+    \begin{bmatrix}
+    0.25&0.25&0.25\\
+    -0.5&0&0.5\\
+    0.25&-0.25&0.25
+    \end{bmatrix}
+    \begin{bmatrix}
+    1\\
+    2\\
+    3
+    \end{bmatrix}
+    $
+    $ $\\
+    $ $\\
+    $ $\\
+    
+    $= \begin{bmatrix}
+    1&-1&1\\
+    2&0&-2\\
+    1&1&1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1&0&0\\
+    0&1/256&0\\
+    0&0&0
+    \end{bmatrix}
+    \begin{bmatrix}
+    0.25&0.25&0.25\\
+    -0.5&0&0.5\\
+    0.25&-0.25&0.25
+    \end{bmatrix}
+    \begin{bmatrix}
+    1\\
+    2\\
+    3
+    \end{bmatrix}
+    $
+    $ $\\
+    $ $\\
+    $ $\\
+    $= \begin{bmatrix}
+    383/256\\
+    3\\
+    385/256
+    \end{bmatrix}$\\
+    $ $\\
+    $ $\\
+    $= \begin{bmatrix}
+    1.49609375\\
+    3\\
+    1.50390625
+    \end{bmatrix}$
+\end{center}
 
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Resultados e Conclusão}
 \label{sec:resultados}
 
-Nesta seção, aparecem os gráficos, as tabelas etc. Lembre-se que todo gráfico (que estão num ambiente de figura) ou tabela deve ser referenciado e explicado no \textbf{texto}.
+Como resultado de nossos experimenos, podemos saber a chance das probabilidades de cada gene sobre a população, independente de qual for o período. Por meio do cálculo do autovetor sobre o autovalor dominante e da decomposição espectral da matriz $M$.\\
 
-A conclusão é um pequeno resumo dos resultados obtidos, por exemplo, como a população de genes dominantes, híbridos e recessivos se estabiliza.
+Os graficos abaixo representam respectivamente a mudança da probabilidade de cada tipo de gene em 4 períodos. com o $\vec{v} = $ um vetor retirado aléatoriamente e em seguido normalizado. Vemos que a partir de um tempo $k$ sufuciente, os valorem tendem para um valor. Sendo os números desse valor, os número do autovalor dominante.
+$ $\\
+
+\begin{tikzpicture} %  indicação que estamos iniciando uma figura
+\begin{axis}[ %  iniciando os eixos   
+xlabel=probabilidade,            % nomeando os eixos
+ylabel=período]
+ 
+\addplot[color=blue,mark=*] coordinates{  % caracterizando a plotagem
+(1, 1/15^0.5)
+(2, 15^0.5 / 15)
+(3, 15^0.5 / 12)
+(4, 11*15^0.5/120)
+(5, 23*15^0.5/240)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture} %  indicação que estamos iniciando uma figura
+\begin{axis}[ %  iniciando os eixos   
+xlabel=probabilidade,            % nomeando os eixos
+ylabel=período]
+ 
+\addplot[color=blue,mark=*] coordinates{  % caracterizando a plotagem
+(1,2/15^0.5)
+(2,15^0.5 / 5)
+(3, 15^0.5 / 5)
+(4, 15^0.5 / 5)
+(5, 15^0.5 / 5)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture} %  indicação que estamos iniciando uma figura
+\begin{axis}[ %  iniciando os eixos   
+xlabel=probabilidade,            % nomeando os eixos
+ylabel=período]
+ 
+\addplot[color=blue,mark=*] coordinates{  % caracterizando a plotagem
+(1, 3/15^0.5)
+(2, 2 * 15^0.5 / 15)
+(3, 7*15^0.5/60)
+(4, 13*15^0.5 / 120)
+(5,5 * 15^0.5 / 48)
+};
+\end{axis}
+\end{tikzpicture}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% referencias bibliograficas
