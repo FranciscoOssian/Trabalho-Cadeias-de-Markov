@@ -140,6 +140,30 @@ Sabendo que uma matriz pode ser decompostar em $S\Lambda S^{-1}$, fica trivial o
     $M^k = (S\Lambda S^{-1})^k = S\Lambda S^{-1} S\Lambda S^{-1} ... S\Lambda S^{-1} = S\Lambda^k S^{-1} $
 \end{center}
 
+$ $\\
+
+Seja uma matriz $A_{3x3}$
+
+\begin{displaymath}
+A = \begin{bmatrix}
+2a&b&c\\
+-a&3b&2c\\
+-a&-4b&-3c
+\end{bmatrix}
+\end{displaymath}
+
+então, \\
+\begin{center}
+    $|A| = -18abc-2abc+4abc-(-3abc-16abc+3abc)-18abc-2abc+4abc+3abc+16abc-3abc-20abc+20abc = 0$    
+\end{center}
+$  $\\
+
+E podemos extender isso para uma matriz $B_{nxn}$, onde:\\
+\begin{center}
+    $|B| = 0$, se somente se, $\sum_{j = 0}^{n} B_{ij}$, onde $n = $ número de linhas
+\end{center}
+
+
 %%%%%%%%%%%%%%%%%%%%%
 \section{Metodologia e Experimentos}
 \label{sec:metodologia}
@@ -193,11 +217,24 @@ Então o autovalor dominante é o $\lambda_1$. E seu autovetor associado é, no 
 \end{displaymath}
 
 Sendo está a proporção de genes quando o número de períodos tende a infinito.
-Mas esta proporção não está representada como porcentagem. Para nós convertermos a proporção de genes para porcentagem, precisamos normalizar o vetor $\vec{v}_1$ para norma $1$, assim a soma de suas porcentagens/linhas será igual a $1$, logo:
+Mas esta proporção não está representada como probabilidade. Para nós convertermos a proporção de genes para probabilidade, precisamos normalizar o vetor $\vec{v}_1$ de acordo com a razão:\\
+
 \begin{center}
-    $||\vec{v}_1|| = \dfrac{\vec{v}_1}{\sqrt{\langle\ \vec{v}_1,\vec{v}_1 \rangle}}$
-    $ = \begin{bmatrix} \dfrac{1}{\sqrt{6}}\\ \dfrac{2}{\sqrt{6}}\\ \dfrac{1}{\sqrt{6}} \end{bmatrix}$
+    $\left( 1 / \sum_{i=j}^{3} \vec{v}_{j1} \right)\vec{v}$    
 \end{center}
+
+$ $\\
+
+logo:
+\begin{center}
+    $\left( 1 / \sum_{i=j}^{3} \vec{v}_{j1} \right) = \frac{1}{4}$\\
+    $ $\\
+    $ $\\
+    $\frac{1}{4} \vec{v} =  \begin{bmatrix} 1/4\\ 1/2\\ 1/4 \end{bmatrix} = $
+    $\begin{bmatrix} 0.25\\ 0.5\\ 0.25 \end{bmatrix}$
+\end{center}
+
+Sendo está a probabilidade sobre cada genótipo, no período $k$ tal que,  $k = \lim_{k\to\infty}$\\
 
 E podemos então calcular a decomposição espetral de $M$, para quando quisermos calcular a proporção de genes em qualquer período de formar viável.
 
