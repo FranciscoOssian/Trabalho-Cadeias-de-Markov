@@ -58,11 +58,9 @@
 \author{
   Francisco Ossian Lopes Neto\\
   \and
-  xxxxxxxxxxxxxxxxxxxxxxx\\
+  Paulo Henrique Souza Filho\\
   \and
-  yyyyyyyyyyyyyyyyyyyyyyyy\\
-  \and
-  zzzzzzzzzzzzzzzzzzzzzzzz\\
+  Alexandre Cavalcante de Azevedo\\
   \and
 }
 \date{abril 2020}
@@ -72,7 +70,7 @@
 \maketitle
 
 \begin{abstract}
-probabilidade da genética, envolve diversas vezes, solução que dependem da álgebra linear para transformar seu problmeas em triviais. Um deles é a taxa de probabilidade genética ao passar das geraçãoes. Sendo este problema resolvido com as Cadeias de Markov que juntam diversas técnicas e métodos matriciais, para representar justamente a taxa de probabilidade ao decorrer das gerações. Utilizando autovalores, aitovetores, decomposição espectral, entre outros.
+Probabilidade na genética, envolve diversas vezes, soluções que dependem da álgebra linear para transformar seu problmeas em triviais. Um deles é a taxa de probabilidade genética ao passar das gerações. Sendo este problema resolvido com as Cadeias de Markov que juntam diversas técnicas e métodos matriciais, para representar justamente a taxa de variação ao decorrer das gerações. Utilizando autovalores, autovetores, decomposição espectral, entre outros.
 \end{abstract}
 
 
@@ -80,7 +78,7 @@ probabilidade da genética, envolve diversas vezes, solução que dependem da á
 \section{Introdução}
 \label{sec:introducao}
 
-Podemos abordar na probabilidade da genética, inumeros casos peculiares que podemos resolve-los atravez da Álgebra Linear. Como quais as proporções em que populações tendem depois de vários períodos, se conparadas pelos seus genes. Sabemos que existem genes que são mais dominates, e por isso exercem uma força maior na velocidade de reprodução. Tendo isto em questão, podemos usar o sistema das Cadeias de Markov junto a operações matriciais da Álgebra Linear para calcular a probabilidade da proporção de determinados grupos em tempos discretos. 
+Podemos abordar na probabilidade da genética, inúmeros casos peculiares que podemos resolver atravéz da Álgebra Linear. Como, quais as proporções em que populações tendem depois de vários períodos, se conparadas pelos seus genótipos. Sabemos que existem genes que são mais dominates, e por isso exercem uma força maior na probabilidade genótipa. Tendo isto em questão, podemos usar o sistema das Cadeias de Markov junto a operações matriciais da Álgebra Linear para calcular a probabilidade da proporção de determinados grupos em tempos discretos. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,9 +89,9 @@ Um processo de Markov é um processo estocástico em que a probabilidade de o si
 
 \begin{itemize}
 
-\item as probabilidades de transição $Mij$. Estas probabilidades de transição são normalmente agrupadas numa matriz, que denominamos matriz de transição, matriz estocástica ou ainda matriz de Markov. Onde $i$ representa o período $n$ e $j$ o período $n+1$. Ou $j$ o período $n$ e $i$ o período $n+1$
+\item As probabilidades de transição $Mij$. Estas probabilidades de transição são normalmente agrupadas numa matriz, que denominamos matriz de transição, matriz estocástica ou ainda matriz de Markov. Onde $i$ representa o período $n$ e $j$ o período $n+1$. Ou $j$ o período $n$ e $i$ o período $n+1$
 
-\item a probabilidade $x^i(n)$ de ocorrer o estado $i$ no $n$-ésimo período de tempo, ou, alternativamente, a fração da população em questão que está no estado $i$ no $n$-ésimo período de tempo.
+\item A probabilidade $x^i(n)$ de ocorrer o estado $i$ no $n$-ésimo período de tempo, ou, alternativamente, a fração da população em questão que está no estado $i$ no $n$-ésimo período de tempo.
 
 \end{itemize}
 
@@ -106,7 +104,7 @@ onde os simbolos representam respectivamente, a matriz de estados de Markov, um 
 $\lambda_2 I \vec{v}_2 = \lambda_2 \vec{v}_2$
 \end{center}
 
-    Onde $I$ é a matriz identidade.
+    onde $I$ é a matriz identidade.
 Então podemos isolar a matriz de Markov e $\lambda I$, tal que.
 
 \begin{center}
@@ -117,10 +115,10 @@ $det((M-\lambda I)\vec{v}) = det(\vec{0})$, logo:
 
 \begin{center}
     $det(M - \lambda I) = 0$
-\end{center}
+\end{center}.
 
 Pois por definição $\vec{v}$ é não nulo, e $det(0) = 0$\\\\
-E para conseguir os autovalores, fazemos o determinate, tendo a matriz $M$. No final encontramos um polinômio de grau 3,  $ax^3 + bx^2 + cx^1 + dx^0$. Onde cada raíz deste polinômio é um $\lambda$ (autovalor) da matriz M.\\
+e para conseguir os autovalores, fazemos o determinate, tendo a matriz $M$. No final encontramos um polinômio de grau 3,  $ax^3 + bx^2 + cx^1 + dx^0$. Onde cada raíz deste polinômio é um $\lambda$ (autovalor) da matriz M.\\
 
 E em casos que $\lambda$ é um valor entre $0$ e $1$, com o passar de $n$ períodos, onde $n$ tende a infinito, o resesultado irá tender a $0$, pois\\
 \begin{center}
@@ -142,26 +140,28 @@ Sabendo que uma matriz pode ser decompostar em $S\Lambda S^{-1}$, fica trivial o
 
 $ $\\
 
-Seja uma matriz $A_{3x3}$
+Seja uma matriz $A_{nxn}$ cuja soma dos elementos de cada coluna é zero, logo
+$det(A) = 0$, pois:\\
 
-\begin{displaymath}
-A = \begin{bmatrix}
-2a&b&c\\
--a&3b&2c\\
--a&-4b&-3c
-\end{bmatrix}
-\end{displaymath}
 
-então, \\
+Sendo $B$ um vetor de dimenção $1 x n$ contendo o somatória dos elementos de cada coluna de A\\
+
 \begin{center}
-    $|A| = -18abc-2abc+4abc-(-3abc-16abc+3abc)-18abc-2abc+4abc+3abc+16abc-3abc-20abc+20abc = 0$    
+    $B_{ij} = \sum_{j=0}^{n} Aij$\\
+    $det(A) = det(B)$\\
 \end{center}
-$  $\\
 
-E podemos extender isso para uma matriz $B_{nxn}$, onde:\\
+Por definição $B$ é um vetor com uma linha nula, logo $det(B) = 0$, pois em uma matriz ou vetor que contenha um vetor nulo, seu determinante será $0$\\
+
+E seja $K_{nxn}$ uma matriz cuja soma dos elementos de cada coluna é 1, logo existirá um autovalor $\lambda = 1$, pois:\\
+
 \begin{center}
-    $|B| = 0$, se somente se, $\sum_{j = 0}^{n} B_{ij}$, onde $n = $ número de linhas
-\end{center}
+    $det(K - \lambda I) = 0$\\
+    $det(K - I) = 0$
+\end{center}.
+
+Sendo que a matriz $K-I$ tem o somatório de elementos de cada coluna igual a 0, pois de cada coluna de $K$ é retirado 1. E tendo somatório de cada coluna igual a zero, seu determinate será zero. Satisfazendo a condição para $\lambda = 1$ ser um autovalor.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -188,14 +188,14 @@ O autovalor predominante da matriz $M$ vai nos dar por conseguinte seu autovetor
 Calculando os autovalores, temos:
 \begin{center}
     $\lambda_1 = 1$,\\ $\lambda_2$ = 0.5,\\ $\lambda_3 = 0$.
-\end{center}
+\end{center}.
 
 Pois,
 \begin{center}
     $det(M-\lambda I) = 0$\\
     $= (0.5 - \lambda)^3 - 1/16 - \lambda/8 = 0$
 \end{center}
-e $\lambda_1$, $\lambda_2$, $\Lambda_3$ são suas respectivas raízes
+e $\lambda_1$, $\lambda_2$, $\Lambda_3$ são suas respectivas raízes.
 
 Como já definido, se um autovalor for entre $0$ e $1$, ele não será considerado um autovalor suficiente para $n$ tendendo ao infinito.
 
@@ -238,7 +238,7 @@ Sendo está a probabilidade sobre cada genótipo, no período $k$ tal que,  $k =
 
 E podemos então calcular a decomposição espetral de $M$, para quando quisermos calcular a proporção de genes em qualquer período de formar viável.
 
-primeirp precisamos calcular todos os autovalores e vetores de $M$, os autovalores já foram calculadores, sendo $\lambda_1 = 1; \lambda_2 = 0.5; \lambda_3 = 0$\\
+primeiro precisamos calcular todos os autovalores e vetores de $M$, os autovalores já foram calculadores, sendo $\lambda_1 = 1; \lambda_2 = 0.5; \lambda_3 = 0$\\
 
 Então precisamos calcular os autovetores relacionados a cada autovetor, resolvendo 2 sistemas linerares (pois $\vec{v}_1$ já foi calculado):\\
 
@@ -262,7 +262,7 @@ Então precisamos calcular os autovetores relacionados a cada autovetor, resolve
     logo,\\
     $ $\\
     $\vec{v}_2 = \begin{bmatrix} \vec{v}_{21}\\ \vec{v}_{22}\\ \vec{v}_{23} \end{bmatrix} = \begin{bmatrix} -1\\ 0\\ 1 \end{bmatrix}$ 
-\end{center}
+\end{center}.
 $ $\\
 $ $\\
 
@@ -270,7 +270,7 @@ Seguindo os mesmos passos mostrados anteriores, com $\lambda_3$ no lugar de $\la
 
 \begin{center}
     $\vec{v}_3 = \begin{bmatrix} \vec{v}_{31}\\ \vec{v}_{32}\\ \vec{v}_{33} \end{bmatrix} = \begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}$
-\end{center}
+\end{center}.
 
 Então calculamos a decomposição espectral:
 
@@ -314,7 +314,7 @@ Então calculamos a decomposição espectral:
     0.25&-0.25&0.25
     \end{bmatrix}
     $
-\end{center}
+\end{center}.
 
 Agora que temos a decomposição espectral, torna-se trivial o cálculo da proporção de probabilidade de genes, em qualquer período discreto.
 $ $\\
@@ -392,15 +392,15 @@ Como por exemplo a distribuição de genes iniciais sendo $= \vec{v} = \begin{bm
 \section{Resultados e Conclusão}
 \label{sec:resultados}
 
-Como resultado de nossos experimenos, podemos saber a chance das probabilidades de cada gene sobre a população, independente de qual for o período. Por meio do cálculo do autovetor sobre o autovalor dominante e da decomposição espectral da matriz $M$.\\
+Como resultado de nossos experimenos, podemos saber a chance das probabilidades de cada genótipo sobre a população, independente de qual for o período. Por meio do cálculo do autovetor sobre o autovalor dominante e da decomposição espectral da matriz $M$.\\
 
-Os graficos abaixo representam respectivamente a mudança da probabilidade de cada tipo de gene em 4 períodos. com o $\vec{v} = $ um vetor retirado aléatoriamente e em seguido normalizado. Vemos que a partir de um tempo $k$ sufuciente, os valorem tendem para um valor. Sendo os números desse valor, os número do autovalor dominante.
+Os graficos abaixo representam respectivamente a mudança da probabilidade de cada tipo de gene em 4 períodos. com o $\vec{v}$ um vetor retirado aléatoriamente e em seguido normalizado. Vemos que a partir de um tempo $k$ sufuciente, os valorem tendem para um valor. Sendo os números desse valor, os número do autovalor dominante.
 $ $\\
 
 \begin{tikzpicture} %  indicação que estamos iniciando uma figura
 \begin{axis}[ %  iniciando os eixos   
-xlabel=probabilidade,            % nomeando os eixos
-ylabel=período]
+xlabel=período,            % nomeando os eixos
+ylabel=probabilidade]
  
 \addplot[color=blue,mark=*] coordinates{  % caracterizando a plotagem
 (1, 1/15^0.5)
@@ -414,8 +414,8 @@ ylabel=período]
 
 \begin{tikzpicture} %  indicação que estamos iniciando uma figura
 \begin{axis}[ %  iniciando os eixos   
-xlabel=probabilidade,            % nomeando os eixos
-ylabel=período]
+xlabel=período,            % nomeando os eixos
+ylabel=probabilidade]
  
 \addplot[color=blue,mark=*] coordinates{  % caracterizando a plotagem
 (1,2/15^0.5)
@@ -429,8 +429,8 @@ ylabel=período]
 
 \begin{tikzpicture} %  indicação que estamos iniciando uma figura
 \begin{axis}[ %  iniciando os eixos   
-xlabel=probabilidade,            % nomeando os eixos
-ylabel=período]
+xlabel=período,            % nomeando os eixos
+ylabel=probabilidade]
  
 \addplot[color=blue,mark=*] coordinates{  % caracterizando a plotagem
 (1, 3/15^0.5)
